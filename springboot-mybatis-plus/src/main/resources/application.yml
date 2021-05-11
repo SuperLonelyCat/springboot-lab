@@ -1,0 +1,8 @@
+spring:
+  # 配置数据源
+  datasource:
+    # 配置mysql数据库(默认连接池为HikariPool)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/user?serverTimezone=Asia/Shanghai
+    username: root
+    password: 1314
