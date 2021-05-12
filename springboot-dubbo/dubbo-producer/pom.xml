@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.5</version>
+		<relativePath/>
+	</parent>
+	<groupId>com.ming</groupId>
+	<artifactId>dubbo-producer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>dubbo-producer</name>
+	<description>Dubbo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<dubbo.version>2.7.10</dubbo.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- api -->
+		<dependency>
+			<groupId>com.ming</groupId>
+			<artifactId>dubbo-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- dubbo -->
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+			<version>${dubbo.version}</version>
+		</dependency>
+
+		<!-- zookeeper -->
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-dependencies-zookeeper</artifactId>
+			<version>${dubbo.version}</version>
+			<type>pom</type>
+			<exclusions>
+				<!-- 解决SLF4J: Class path contains multiple SLF4J bindings问题 -->
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<!-- 解决log4j:WARN No appenders could be found for logger (org.apache.dubbo.common.logger.LoggerFactory)问题 -->
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,17 @@
+server:
+  port: 9091
+
+dubbo:
+  application:
+    name: dubbo-consumer
+# 消费者端口号固定, 消费端口号相对应的生产者; 没有固定端口号, 默认随机负载均衡策略
+#  protocol:
+#    name: dubbo
+#    port: 20880
+  registry:
+    address: zookeeper://192.168.13.128:2181?backup=192.168.13.129:2181,192.168.13.130:2181
+    # 设置注册超时时间, 否则zookeeper not connected
+    timeout: 100000
+  consumer:
+    # 设置负载均衡: 轮询, 四种负载均衡模式: random(随机)、roundrobin(轮询)、leastactive(最小活跃度)、consistenthash(一致性哈希)
+    loadbalance: roundrobin
