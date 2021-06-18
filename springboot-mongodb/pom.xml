@@ -8,7 +8,7 @@
         <version>2.4.5</version>
         <relativePath/>
     </parent>
-    <groupId>com.ming.it</groupId>
+    <groupId>com.ming</groupId>
     <artifactId>springboot-mongodb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-mongodb</name>

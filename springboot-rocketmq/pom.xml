@@ -9,45 +9,30 @@
         <relativePath/>
     </parent>
     <groupId>com.ming</groupId>
-    <artifactId>springboot-mybatis-plus</artifactId>
+    <artifactId>springboot-rocketmq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-mybatis-plus</name>
+    <name>springboot-rocketmq</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
-        <mybatis-plus.version>3.4.2</mybatis-plus.version>
-        <lang.version>3.10</lang.version>
+        <rocketmq.version>2.0.3</rocketmq.version>
     </properties>
     <dependencies>
 
-        <!-- 引入spring基本依赖: spring基础包、日志包、yaml解析包 -->
+        <!-- Web(包含jackson相关jar包) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- mybatis-plus -->
+        <!-- rocketmq -->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis-plus.version}</version>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>${rocketmq.version}</version>
         </dependency>
 
-        <!-- mysql -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <!-- 工具包 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${lang.version}</version>
-        </dependency>
-
-       <!-- lombok -->
+        <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

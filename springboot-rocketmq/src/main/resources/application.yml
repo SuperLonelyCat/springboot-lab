@@ -1,0 +1,9 @@
+rocketmq:
+  name-server: 172.20.227.159:9876;172.20.227.160:9876
+  topic: rocketmq_topic
+  producer:
+    send-retry-times-async: 3
+    send-msg-timeout: 1000
+  consumer:
+    consume-thread-number: 10
+    consume-retry-times: 2
