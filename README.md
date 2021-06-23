@@ -20,3 +20,4 @@
 - SpringBoot异步任务
 - SpringBoot多线程
 - SpringBoot全局异常处理
+- SpringBoot国际化
