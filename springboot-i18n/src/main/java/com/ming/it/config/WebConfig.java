@@ -33,4 +33,12 @@ public class WebConfig implements WebMvcConfigurer {
         // return localeResolver;
     }
      */
+
+    // 自定义判断请求头参数
+    /*
+    @Bean
+    public LocaleResolver localeResolver() {
+        return new DefinedLocaleResolver();
+    }
+    */
 }

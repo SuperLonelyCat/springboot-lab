@@ -2,11 +2,8 @@ package com.ming.it.common;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ming.it.constant.WebConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -19,12 +16,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @author 11119638
  * @date 2020/12/7 15:05
  */
-@ControllerAdvice
+// 项目整合swagger时，如果@ControllerAdvice不指定包名，swagger-ui.html将无法访问
+// 指定包名，指定包名一般为父级包名，要不然异常结果无法拦截
+// 在GlobalExceptionHandler处理之后生效
+@ControllerAdvice({"com.ming.it"})
 @Slf4j
 public class ResponseHandler implements ResponseBodyAdvice<Object> {
 
     @Autowired
-    private MessageSource messageSource;
+    private MessageConverter messageConverter;
 
     /**
      * 定义要拦截的方法
@@ -48,18 +48,14 @@ public class ResponseHandler implements ResponseBodyAdvice<Object> {
             当Controller返回String时，选择了StringMessageConverter来处理，此类型只接受String返回类型，由于在ResponseHandler
           中将String转化为Result类型，因此会将Result类型强制转为String，自然会发生异常。
         */
-        String message = messageSource.getMessage(WebConstant.RESULT_CODE_PREFIX + ResultCode.SUCCESS.getCode(),
-                null, LocaleContextHolder.getLocale());
         // 用于处理异常结果
         if (o instanceof Result) {
-            message = messageSource.getMessage(WebConstant.RESULT_CODE_PREFIX + ((Result<?>) o).getCode(),
-                    null, LocaleContextHolder.getLocale());
-            ((Result<?>) o).setMessage(message);
+            ((Result<?>) o).setMessage(messageConverter.getMsg(((Result<?>) o).getCode()));
             return o;
         }
         // 处理正常结果
         final Result<Object> success = Result.success(o);
-        success.setMessage(message);
+        success.setMessage(messageConverter.getMsg(ResultCode.SUCCESS.getCode()));
         // 返回数据为String类型
         if (o instanceof String) {
             final ObjectMapper mapper = new ObjectMapper();

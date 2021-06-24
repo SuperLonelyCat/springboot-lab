@@ -19,7 +19,13 @@ public enum ResultCode {
     OBJECT_COPY_EXCEPTION(801, "Object Copy Exception"),
 
     /** 对象不存在 */
-    OBJECT_NOT_EXIST(802, "Object Not Exist");
+    OBJECT_NOT_EXIST(802, "Object Not Exist"),
+
+    /** 参数错误 */
+    PARAM_ERROR(803, "Param Error"),
+
+    /** 信息未找到 */
+    MESSAGE_NOT_FOUND(805, "No Message Found");
 
     private final int code;
 
