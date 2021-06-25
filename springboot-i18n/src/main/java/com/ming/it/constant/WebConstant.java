@@ -9,6 +9,8 @@ public interface WebConstant {
     // 语言设置参数需放在请求头中
     String LANG_SIGN = "lang";
 
+    String ACCEPT_LANGUAGE = "Accept-Language";
+
     // 国际化前缀
     String RESULT_CODE_PREFIX = "msg_";
 

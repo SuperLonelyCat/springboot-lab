@@ -1,6 +1,8 @@
 package com.ming.it.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -26,19 +28,17 @@ public class WebConfig implements WebMvcConfigurer {
     // 设置会话区域解析器SessionLocaleResolver
     /*
     @Bean
-    LocaleResolver localeResolver() {
-        // 会话区域解析器
-        // SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        // localeResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-        // return localeResolver;
+    public LocaleResolver localeResolver() {
+         // 会话区域解析器
+         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+         localeResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
+         return localeResolver;
     }
-     */
+    */
 
     // 自定义判断请求头参数
-    /*
     @Bean
     public LocaleResolver localeResolver() {
         return new DefinedLocaleResolver();
     }
-    */
 }

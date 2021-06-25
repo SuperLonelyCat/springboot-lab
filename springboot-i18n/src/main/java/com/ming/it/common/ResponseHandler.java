@@ -50,7 +50,9 @@ public class ResponseHandler implements ResponseBodyAdvice<Object> {
         */
         // 用于处理异常结果
         if (o instanceof Result) {
-            ((Result<?>) o).setMessage(messageConverter.getMsg(((Result<?>) o).getCode()));
+            if (ResultCode.PARAM_ERROR.getCode() != ((Result<?>) o).getCode()) {
+                ((Result<?>) o).setMessage(messageConverter.getMsg(((Result<?>) o).getCode()));
+            }
             return o;
         }
         // 处理正常结果

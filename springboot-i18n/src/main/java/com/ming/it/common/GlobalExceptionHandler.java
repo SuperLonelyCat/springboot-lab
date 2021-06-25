@@ -45,6 +45,7 @@ public class GlobalExceptionHandler {
     }
 
     // 拦截注解校验参数
+    // 默认支持国际化
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Result<?> handleParameterException(MethodArgumentNotValidException e) {
         List<ObjectError> list = e.getBindingResult().getAllErrors();
