@@ -1,4 +1,4 @@
-CREATE TABLE `user` (
+CREATE TABLE `account` (
     `uid` varchar(10) COLLATE utf8_bin NOT NULL COMMENT 'ID',
     `password` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '密码',
     `name` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '姓名',

@@ -1,4 +1,4 @@
-CREATE TABLE `user` (
+CREATE TABLE `account` (
     `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
     `code` varchar(64) DEFAULT NULL COMMENT '编号',
     `name` varchar(32) DEFAULT NULL COMMENT '姓名',

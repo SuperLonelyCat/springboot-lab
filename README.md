@@ -4,6 +4,7 @@
 #### 组件应用
 
 - [SpringBoot整合Dubbo](springboot-dubbo/README.md)
+- [SpringBoot整合Shiro](springboot-shiro/README.md)
 - SpringBoot整合MongoDB
 - SpringBoot整合Mybatis-Plus
 - SpringBoot整合RocketMQ
