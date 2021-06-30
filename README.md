@@ -9,7 +9,7 @@
 - SpringBoot整合Mybatis-Plus
 - SpringBoot整合RocketMQ
 - SpringBoot整合Redis
-- SpringBoot整合Elasticsearch
+- [SpringBoot整合Elasticsearch](springboot-elasticsearch/README.md)
 - SpringBoot整合JWT
 - SpringBoot整合Swagger
 

@@ -1,0 +1,7 @@
+server:
+  port: 8090
+spring:
+  elasticsearch:
+    rest:
+      # 设置服务器地址
+      uris: 127.0.0.1:9200
